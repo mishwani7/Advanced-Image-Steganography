@@ -4,7 +4,7 @@ A cutting-edge, professional web application for hiding and revealing secret mes
 
 ## 🌐 Live Demo
 
-**🚀 [Try it Live!](https://advanced-image-steganography-1xumv54ae.vercel.app)**
+**🚀 [Try it Live!](https://advanced-image-steganography.vercel.app)**
 
 Experience the full application with all features - no installation required!
 
@@ -227,7 +227,7 @@ npm start
 
 ### Live Application
 
-- **🌐 Production URL**: [https://advanced-image-steganography-1xumv54ae.vercel.app](https://advanced-image-steganography-1xumv54ae.vercel.app)
+- **🌐 Production URL**: [https://advanced-image-steganography.vercel.app](https://advanced-image-steganography.vercel.app)
 - **✅ Status**: Live and fully functional
 - **⚡ Performance**: Global CDN with edge caching
 - **🔒 Security**: HTTPS with automatic SSL certificates
