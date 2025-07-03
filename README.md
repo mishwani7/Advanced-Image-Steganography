@@ -4,7 +4,7 @@ A cutting-edge, professional web application for hiding and revealing secret mes
 
 ## 🌐 Live Demo
 
-**🚀 [Try it Live!](https://advanced-image-steganography.vercel.app)**
+**🚀 [Try it Live!](https://advanced-image-steganography-1xumv54ae.vercel.app)**
 
 Experience the full application with all features - no installation required!
 
@@ -226,14 +226,26 @@ npm start
 ## 🚀 Deployment
 
 ### Live Application
-- **Production URL**: [https://advanced-image-steganography.vercel.app](https://advanced-image-steganography.vercel.app)
-- **Status**: ✅ Live and fully functional
-- **Uptime**: 99.9% guaranteed by Vercel
-- **Performance**: Global CDN with edge caching
+
+- **🌐 Production URL**: [https://advanced-image-steganography-1xumv54ae.vercel.app](https://advanced-image-steganography-1xumv54ae.vercel.app)
+- **✅ Status**: Live and fully functional
+- **⚡ Performance**: Global CDN with edge caching
+- **🔒 Security**: HTTPS with automatic SSL certificates
+- **📱 Responsive**: Optimized for all devices
+
+## 📋 Recent Updates
+
+### Latest Release (July 2025)
+- ✅ **Fixed**: TypeScript build errors resolved
+- 🚀 **Deployed**: Successfully deployed to Vercel production
+- 🔧 **Improved**: Enhanced error handling and type safety
+- 📱 **Optimized**: Better mobile responsiveness
+- 🔒 **Security**: Strengthened encryption implementation
 
 ### Deploy Your Own Instance
 
 #### Option 1: Deploy to Vercel (Recommended)
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmishwani7%2FAdvanced-Image-Steganography)
 
 1. Click the "Deploy with Vercel" button above
@@ -242,6 +254,7 @@ npm start
 4. Deploy automatically - no configuration needed!
 
 #### Option 2: Manual Deployment to Vercel
+
 ```bash
 # Install Vercel CLI
 npm install -g vercel
@@ -254,6 +267,7 @@ vercel --prod
 ```
 
 #### Option 3: Deploy to Other Platforms
+
 - **Netlify**: Connect GitHub repository with Next.js build preset
 - **Railway**: Connect GitHub repository with automatic deployment
 - **Render**: Deploy from GitHub with Node.js environment
