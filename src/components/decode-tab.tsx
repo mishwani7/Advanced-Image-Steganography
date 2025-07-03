@@ -227,17 +227,17 @@ export function DecodeTab() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
-        <Card className="glow-border">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Eye className="h-5 w-5 text-primary" />
+        <Card className="cyber-card border-2">
+          <CardHeader className="pb-4">
+            <CardTitle className="flex items-center gap-3 text-xl">
+              <Eye className="h-6 w-6 text-primary" />
               Select Encoded Image
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-base">
               Choose an image that contains a hidden message
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-0">
             <ImageUpload
               onImageSelect={setSelectedImage}
               selectedImage={selectedImage}
