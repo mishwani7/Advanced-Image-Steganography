@@ -83,10 +83,22 @@ export function SteganographyApp() {
                 href="https://github.com/mishwani7/Advanced-Image-Steganography"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cyber-card p-2 sm:p-3 border-2 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                className={`inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 p-0 theme-transition cyber-card border-2 rounded-md transition-all duration-300 ${
+                  theme === 'light'
+                    ? 'border-gray-400 bg-white text-gray-900 hover:bg-gray-50 hover:shadow-md hover:border-gray-500'
+                    : 'border-gray-400 bg-transparent text-gray-100 hover:bg-gray-700 hover:text-white hover:shadow-md hover:border-gray-300'
+                }`}
                 title="View on GitHub"
+                onClick={(e) => {
+                  // Remove focus after click
+                  setTimeout(() => {
+                    if (e.currentTarget) {
+                      e.currentTarget.blur()
+                    }
+                  }, 100)
+                }}
               >
-                <Github className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
+                <Github className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
             </motion.div>
           </div>
@@ -111,19 +123,19 @@ export function SteganographyApp() {
                 }`}>
                 <TabsTrigger
                   value="encode"
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg py-2 sm:py-3 px-2 sm:px-4 text-sm sm:text-base font-medium transition-all duration-300"
+                  className="rounded-lg py-2 sm:py-3 px-2 sm:px-4 text-sm sm:text-base font-medium transition-all duration-300"
                 >
                   Encode
                 </TabsTrigger>
                 <TabsTrigger
                   value="decode"
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg py-2 sm:py-3 px-2 sm:px-4 text-sm sm:text-base font-medium transition-all duration-300"
+                  className="rounded-lg py-2 sm:py-3 px-2 sm:px-4 text-sm sm:text-base font-medium transition-all duration-300"
                 >
                   Decode
                 </TabsTrigger>
                 <TabsTrigger
                   value="about"
-                  className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg py-2 sm:py-3 px-2 sm:px-4 text-sm sm:text-base font-medium transition-all duration-300"
+                  className="rounded-lg py-2 sm:py-3 px-2 sm:px-4 text-sm sm:text-base font-medium transition-all duration-300"
                 >
                   About
                 </TabsTrigger>

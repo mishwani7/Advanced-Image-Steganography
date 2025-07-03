@@ -155,15 +155,29 @@
 
   /* Enhanced input and textarea focus styling */
   input:focus,
-  textarea:focus,
-  button:focus,
-  [role="button"]:focus {
+  textarea:focus {
     outline: none !important;
     border-color: hsl(var(--primary)) !important;
     box-shadow: 0 0 0 2px hsl(var(--background)),
       0 0 0 4px hsl(var(--primary) / 0.3), 0 0 20px hsl(var(--primary) / 0.2) !important;
     transform: translateY(-1px);
     transition: all 0.2s ease;
+  }
+
+  /* Button focus - only for keyboard navigation */
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px hsl(var(--background)),
+      0 0 0 4px hsl(var(--primary) / 0.3) !important;
+    transition: all 0.2s ease;
+  }
+
+  /* Remove focus on mouse click but keep for keyboard navigation */
+  button:focus:not(:focus-visible),
+  [role="button"]:focus:not(:focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
   }
 
   /* Custom input styling */

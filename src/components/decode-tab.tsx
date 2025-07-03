@@ -77,7 +77,13 @@ export function DecodeTab() {
         setEncryptionData(decoded.encryptionData || null)
         
         if (!password.trim()) {
-          setError('This message is encrypted. Please enter the password.')
+          setError('🔐 This message is encrypted. Please enter the password to decrypt it.')
+          setIsProcessing(false)
+          return
+        }
+
+        if (password.trim().length < 3) {
+          setError('⚠️ Password seems too short. Please check your password and try again.')
           setIsProcessing(false)
           return
         }
@@ -95,9 +101,24 @@ export function DecodeTab() {
             decoded.encryptionData.iv,
             decoded.encryptionData.salt
           )
+          
+          // Additional validation for successful decryption
+          if (!decryptedMessage || decryptedMessage.trim().length === 0) {
+            setError('Incorrect password. Please try again with the correct password.')
+            setDecodedMessage('') // Clear any previous message
+            setIsProcessing(false)
+            return
+          }
+          
           setDecodedMessage(decryptedMessage)
         } catch (decryptError) {
-          setError('Incorrect password. Please try again with the correct password.')
+          // Handle any decryption errors (usually incorrect password)
+          const errorMessage = decryptError instanceof Error ? decryptError.message : 'Decryption failed'
+          if (errorMessage.includes('incorrect password') || errorMessage.includes('Decryption failed')) {
+            setError('❌ Incorrect password. Please verify your password and try again.')
+          } else {
+            setError(`Decryption error: ${errorMessage}`)
+          }
           setDecodedMessage('') // Clear any previous message
           setIsProcessing(false)
           return
@@ -118,7 +139,7 @@ export function DecodeTab() {
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
     // Clear error when user starts typing a new password
-    if (error && error.includes('password')) {
+    if (error && (error.includes('password') || error.includes('Incorrect'))) {
       setError(null)
     }
   }
@@ -268,10 +289,10 @@ export function DecodeTab() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="flex items-center gap-2 p-4 rounded-lg bg-destructive/10 border border-destructive/20"
+          className="flex items-center gap-3 p-4 rounded-lg bg-destructive/10 border border-destructive/20 shadow-lg"
         >
-          <AlertCircle className="h-4 w-4 text-destructive" />
-          <span className="text-sm text-destructive">{error}</span>
+          <AlertCircle className="h-5 w-5 text-destructive flex-shrink-0" />
+          <span className="text-sm text-destructive font-medium">{error}</span>
         </motion.div>
       )}
 

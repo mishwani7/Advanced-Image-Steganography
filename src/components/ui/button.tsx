@@ -8,8 +8,22 @@ const Button = React.forwardRef<
     variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
     size?: "default" | "sm" | "lg"
   }
->(({ className, variant = "default", size = "default", ...props }, ref) => {
+>(({ className, variant = "default", size = "default", onClick, ...props }, ref) => {
   const { theme } = useTheme()
+  
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // Call the original onClick handler
+    if (onClick) {
+      onClick(e)
+    }
+    
+    // Remove focus from the button after click to prevent persistent outline
+    setTimeout(() => {
+      if (e.currentTarget) {
+        e.currentTarget.blur()
+      }
+    }, 100)
+  }
   
   return (
     <button
@@ -18,27 +32,31 @@ const Button = React.forwardRef<
         {
           // Enhanced contrast for default buttons
           [theme === 'light' 
-            ? "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg border border-primary shadow-sm" 
-            : "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg border border-primary font-semibold shadow-sm"
+            ? "bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg border border-blue-600 shadow-sm font-semibold" 
+            : "bg-blue-500 text-white hover:bg-blue-600 hover:shadow-lg border border-blue-500 font-semibold shadow-sm"
           ]: variant === "default",
           
           [theme === 'light'
-            ? "bg-red-600 text-white hover:bg-red-700 hover:shadow-lg"
-            : "bg-red-500 text-white hover:bg-red-600 hover:shadow-lg"
+            ? "bg-red-600 text-white hover:bg-red-700 hover:shadow-lg border border-red-600 font-semibold"
+            : "bg-red-500 text-white hover:bg-red-600 hover:shadow-lg border border-red-500 font-semibold"
           ]: variant === "destructive",
           
           [theme === 'light'
-            ? "border border-gray-300 bg-white text-gray-900 hover:bg-gray-50 hover:shadow-md"
-            : "border border-gray-600 bg-transparent text-gray-100 hover:bg-gray-800 hover:text-white hover:shadow-md"
+            ? "border-2 border-gray-400 bg-white text-gray-900 hover:bg-gray-50 hover:shadow-md hover:border-gray-500 font-semibold"
+            : "border-2 border-gray-400 bg-transparent text-gray-100 hover:bg-gray-700 hover:text-white hover:shadow-md hover:border-gray-300 font-semibold"
           ]: variant === "outline",
           
           [theme === 'light'
-            ? "bg-gray-100 text-gray-900 hover:bg-gray-200 hover:shadow-lg"
-            : "bg-gray-700 text-gray-100 hover:bg-gray-600 hover:shadow-lg"
+            ? "bg-gray-200 text-gray-900 hover:bg-gray-300 hover:shadow-lg font-semibold"
+            : "bg-gray-600 text-gray-100 hover:bg-gray-500 hover:shadow-lg font-semibold"
           ]: variant === "secondary",
           
-          "hover:bg-accent hover:text-accent-foreground": variant === "ghost",
-          "underline-offset-4 hover:underline text-primary": variant === "link",
+          [theme === 'light'
+            ? "hover:bg-gray-100 text-gray-900 hover:text-gray-900"
+            : "hover:bg-gray-700 text-gray-200 hover:text-gray-100"
+          ]: variant === "ghost",
+          
+          "underline-offset-4 hover:underline text-primary font-semibold": variant === "link",
         },
         {
           "h-10 py-2 px-4": size === "default",
@@ -48,6 +66,7 @@ const Button = React.forwardRef<
         className
       )}
       ref={ref}
+      onClick={handleClick}
       {...props}
     />
   )

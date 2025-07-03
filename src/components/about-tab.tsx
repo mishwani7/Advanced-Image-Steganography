@@ -28,7 +28,7 @@ export function AboutTab() {
           </CardHeader>
           <CardContent className="pt-0">
             <p className={`text-base leading-relaxed ${
-              theme === 'light' ? 'text-gray-700' : 'text-gray-300'
+              theme === 'light' ? 'text-gray-800' : 'text-gray-200'
             }`}>
               Steganography is the ancient art of hiding information in plain sight. Unlike encryption which scrambles data, 
               steganography conceals the very existence of secret messages by embedding them within ordinary-looking files like images.
@@ -55,19 +55,19 @@ export function AboutTab() {
                 <h4 className="text-lg font-semibold">LSB Steganography</h4>
               </div>
               <p className={`text-sm leading-relaxed ${
-                theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                theme === 'light' ? 'text-gray-800' : 'text-gray-200'
               }`}>
                 We use Least Significant Bit (LSB) substitution - the most reliable steganographic technique. Each pixel 
                 in an image has red, green, and blue values from 0-255. By modifying only the last bit of each color channel, 
                 we can hide data while keeping visual changes imperceptible (less than 0.4% difference).
               </p>
               <div className={`bg-gradient-to-r ${
-                theme === 'light' ? 'from-gray-50 to-gray-100' : 'from-gray-800 to-gray-700'
+                theme === 'light' ? 'from-blue-50 to-blue-100' : 'from-blue-900/30 to-blue-800/30'
               } p-4 rounded-lg border font-mono text-sm`}>
                 <div className="space-y-1">
-                  <div>Original: RGB(254, 162, 89)</div>
-                  <div>Modified: RGB(255, 163, 88)</div>
-                  <div className="text-primary font-semibold">Human eye: No difference! 🎯</div>
+                  <div className={theme === 'light' ? 'text-gray-900' : 'text-gray-100'}>Original: RGB(254, 162, 89)</div>
+                  <div className={theme === 'light' ? 'text-gray-900' : 'text-gray-100'}>Modified: RGB(255, 163, 88)</div>
+                  <div className={`font-semibold ${theme === 'light' ? 'text-blue-700' : 'text-blue-300'}`}>Human eye: No difference! 🎯</div>
                 </div>
               </div>
             </div>
@@ -79,23 +79,23 @@ export function AboutTab() {
                 <h4 className="text-lg font-semibold">AES-256 Encryption Layer</h4>
               </div>
               <p className={`text-sm leading-relaxed ${
-                theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                theme === 'light' ? 'text-gray-800' : 'text-gray-200'
               }`}>
                 Before hiding your message, we optionally encrypt it using AES-256 in CBC mode with PBKDF2 key derivation 
                 (100,000 iterations). This adds an extra layer of protection - even if someone suspects steganography, 
                 they still need your password to decrypt the message.
               </p>
               <div className={`bg-gradient-to-r ${
-                theme === 'light' ? 'from-blue-50 to-blue-100' : 'from-blue-900/20 to-blue-800/20'
+                theme === 'light' ? 'from-green-50 to-green-100' : 'from-green-900/30 to-green-800/30'
               } p-4 rounded-lg border`}>
                 <div className="text-sm space-y-2">
-                  <div className="flex items-center justify-between">
+                  <div className={`flex items-center justify-between ${theme === 'light' ? 'text-gray-900' : 'text-gray-100'}`}>
                     <span>Message → Encrypt → Embed → Image</span>
                   </div>
-                  <div className="flex items-center justify-between">
+                  <div className={`flex items-center justify-between ${theme === 'light' ? 'text-gray-900' : 'text-gray-100'}`}>
                     <span>Image → Extract → Decrypt → Message</span>
                   </div>
-                  <div className="text-primary font-semibold">Double protection! 🛡️</div>
+                  <div className={`font-semibold ${theme === 'light' ? 'text-green-700' : 'text-green-300'}`}>Double protection! 🛡️</div>
                 </div>
               </div>
             </div>
@@ -105,11 +105,11 @@ export function AboutTab() {
               theme === 'light' ? 'bg-blue-50' : 'bg-blue-900/20'
             }`}>
               <div className="flex items-start gap-2">
-                <Zap className="h-5 w-5 text-primary mt-0.5" />
+                <Zap className={`h-5 w-5 mt-0.5 ${theme === 'light' ? 'text-blue-700' : 'text-blue-300'}`} />
                 <div>
-                  <h5 className="font-semibold text-primary">Pro Tip:</h5>
+                  <h5 className={`font-semibold ${theme === 'light' ? 'text-blue-800' : 'text-blue-200'}`}>Pro Tip:</h5>
                   <p className={`text-sm ${
-                    theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                    theme === 'light' ? 'text-gray-800' : 'text-gray-200'
                   }`}>
                     The capacity of an image depends on its pixel count. A 1920×1080 image can hide approximately 777KB 
                     of data, while maintaining perfect visual fidelity. That&apos;s enough for novels, documents, or even small files!
