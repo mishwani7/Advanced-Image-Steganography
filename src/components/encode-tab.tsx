@@ -121,7 +121,7 @@ export function EncodeTab() {
         }
       }
 
-      const encodedBlob = await steganography.encodeMessage(selectedImage, {
+      const encodedBlob = await steganography.encodeMessage(selectedImage!, {
         message: finalMessage,
         isEncrypted: useEncryption,
         encryptionData
