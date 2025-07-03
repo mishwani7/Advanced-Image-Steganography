@@ -310,7 +310,7 @@ We welcome contributions! Please follow these steps:
 
 ### Development Setup
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/your-username/Advanced-Image-Steganography.git`
+2. Clone your fork: `git clone https://github.com/mishwani7/Advanced-Image-Steganography.git`
 3. Install dependencies: `npm install`
 4. Create feature branch: `git checkout -b feature/amazing-feature`
 5. Make changes and test thoroughly
@@ -350,14 +350,3 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Project Repository**: [Advanced-Image-Steganography](https://github.com/mishwani7/Advanced-Image-Steganography)
 
 ---
-
-<div align="center">
-  <h3>🌟 Advanced Image Steganography 🌟</h3>
-  <p><strong>Secure • Modern • Professional • Open Source</strong></p>
-  <p>Built with 💙 for privacy enthusiasts and security professionals worldwide</p>
-  <p>
-    <a href="#-advanced-image-steganography">Back to Top</a> •
-    <a href="https://github.com/mishwani7/Advanced-Image-Steganography">View on GitHub</a> •
-    <a href="https://github.com/mishwani7/Advanced-Image-Steganography/issues">Report Issues</a>
-  </p>
-</div>
