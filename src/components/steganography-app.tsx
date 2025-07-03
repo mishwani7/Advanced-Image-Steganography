@@ -35,7 +35,7 @@ export function SteganographyApp() {
           ? 'border-b border-gray-200 bg-white/70 backdrop-saturate-150 shadow-sm' 
           : 'border-b border-border/50 bg-card/60 backdrop-saturate-150 shadow-sm'
       }`}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 lg:py-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-2 lg:py-3">
           <div className="flex items-center justify-between gap-4">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
